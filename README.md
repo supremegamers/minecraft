@@ -69,7 +69,11 @@ cloudflared access tcp --hostname https://the-server-address-you-shared.com --ur
 #### Connecting from minecraft (Only if you used Argo/Cloudflared)
 ------------------------------
 
-After your friends have run cloudflared command then can join from Minecraft with the following address: `127.0.0.1:25565`
+After your friends have run cloudflared command they can join from Minecraft with the following server address:
+
+```
+127.0.0.1:25565
+```
 
 ## The last but not the least step:
 
