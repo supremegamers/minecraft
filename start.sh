@@ -35,7 +35,7 @@ fi
 # fi
 if test ! -e "$_cloudflared_bin"; then {
 	echo '------- Downloading Cloudflared';
-	_cloudflared_dw_link="https://github.com/cloudflare/cloudflared/releases/download/2021.8.2/cloudflared-linux-arm64";
+	_cloudflared_dw_link="https://github.com/cloudflare/cloudflared/releases/download/2021.8.2/cloudflared-linux-amd64";
 	curl -L "$_cloudflared_dw_link" -o "$_cloudflared_bin";
 } fi
 
@@ -58,9 +58,9 @@ chmod +x "$_cloudflared_bin";
 "$_cloudflared_bin" tunnel --url tcp://127.0.0.1:25565 > "$_main_src_dir/cloudflared.log" 2>&1 &
 echo '------- Fetching adress for sharing....'
 while true; do {
-	if _fetch="$(grep -o -m1 'https://.*.trycloudflare.com' "$_main_src_dir/ngrok.log")"; then {
+	if _fetch="$(grep -o -m1 'https://.*.trycloudflare.com' "$_main_src_dir/cloudflared.log")"; then {
 		echo -e "\n-------------------------------------------------"
-		echo "+++ Server address for sharing: $(awk -F 'url=tcp://' '{print $2}' <<<"$_fetch")";
+		echo "+++ Server address for sharing: $_fetch";
 		echo -e "-------------------------------------------------\n"
 		break;
 	} else {
@@ -68,6 +68,7 @@ while true; do {
 	} fi
 } done
 
+echo '------- Starting the server...'
 export PATH="$_jdk_dir/bin:$PATH";
 java -Xms${_arg_mem} -Xmx${_arg_mem} -jar "$_paper_jar" --nogui;
 
