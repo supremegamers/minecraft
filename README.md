@@ -10,10 +10,11 @@ This is a self contained easy to use minecraft server and does not require root 
 git clone https://github.com/supremegamers/minecraft && cd minecraft
 ```
 
-
 ## Start the server
 
-### With Ngrok tunnel - EASY (Could result in slow networking among Asians)
+### With Ngrok tunnel
+
+> Easy to get started but could result in slow networking among Asians
 
 - Get ngrok auth token from https://dashboard.ngrok.com/get-started/your-authtoken
     - Login with Github there
@@ -24,12 +25,14 @@ git clone https://github.com/supremegamers/minecraft && cd minecraft
 bash start.sh your_token
 ```
 
-### With Cloudflared tunnel - Slightly Compilcated but more stable networking
+### With Argo(Cloudflare) tunnel
+
+> Slightly compilcated for the first time but offers more stable networking in most cases.
 
 You don't need any token for it. Simply run it as below:
 
 ```bash
-bash start.sh
+TUNNEL=cloudflare bash start.sh
 ```
 
 But your friends will need to install a program for connecting to it.
