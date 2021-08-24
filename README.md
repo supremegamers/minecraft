@@ -25,6 +25,8 @@ git clone https://github.com/supremegamers/minecraft && cd minecraft
 bash start.sh your_token
 ```
 
+- Then it will give you server address for sharing and your friends can join with it from Minecraft.
+
 ### With Argo(Cloudflare) tunnel
 
 > Slightly compilcated for the first time but offers more stable networking in most cases.
@@ -37,7 +39,7 @@ TUNNEL=cloudflare bash start.sh
 
 But your friends will need to install a program for connecting to it.
 
-### Linux friends
+#### Linux friends
 -----------------
 
 Your linux friends needs to run the following once:
@@ -53,7 +55,7 @@ cloudflared access tcp --hostname https://the-server-address-you-shared.com --ur
 ```
 
 
-### Windows friends
+#### Windows friends
 -------------------
 
 Your windows friends needs to install cloudflared for the first time, [from here](https://github.com/cloudflare/cloudflared/releases/download/2021.8.2/cloudflared-windows-386.msi).
@@ -64,7 +66,12 @@ Later for connecting anytime your friend needs to either open CMD/PowerShell and
 cloudflared access tcp --hostname https://the-server-address-you-shared.com --url 127.0.0.1:25565
 ```
 
-### The last and the least step: <details>
+#### Connecting from minecraft
+------------------------------
+
+After your friends have run cloudflared command then can join from Minecraft with the following address: `127.0.0.1:25565`
+
+## The last but not the least step: <details>
   <summary>Spoiler</summary>
   
   ~~Enjoy~~ if you can.
